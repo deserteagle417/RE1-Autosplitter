@@ -20,7 +20,6 @@ There are also three route alterations you can apply to the splits:
 
 ### Total Door Splits By Category
 
-|-------------------------------------|------------------------|
 |            Run Category             | Total Number of Splits |
 |-------------------------------------|------------------------|
 | Jill, Bad Ending, NMG               |                        |
@@ -35,7 +34,6 @@ There are also three route alterations you can apply to the splits:
 | Chris, Good Ending, NMG             |                        |
 | Chris, Bad Ending, MG               |                        |
 | Chris, Good Ending, MG              |                        |
-|-------------------------------------|------------------------|
 ***Chris No Restriction and Knife Only categories have the same number of splits***
 
 
