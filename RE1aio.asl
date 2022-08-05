@@ -275,7 +275,7 @@ init
 
     //Door Black Lists -- Determines which doors to skip from the appropriate Mansion 1 list and the master post-Mansion 1 list. These are the values of doorIterator on which we don't split.
     //Jill NMG skips form 63 to 100
-    //Jill any% NMG
+    //Jill any% NMG - 177 total splits
     vars.jillAnyNMG = new List<int>()
     {
          63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,
@@ -283,7 +283,7 @@ init
         181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
     };
 
-    //Jill any% NMG Knife
+    //Jill any% NMG Knife - 171 total splits
     vars.jillAnyNMGKnife = new List<int>()
     {
          14,  15,  16,  17,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,
@@ -291,7 +291,7 @@ init
         170, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
     };
 
-    //Jill 100% NMG 
+    //Jill 100% NMG - 191 total splits
     vars.jill100NMG = new List<int>()
     {
          63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,
@@ -299,7 +299,7 @@ init
         184, 185
     };
 
-    //Jill 100% NMG Knife
+    //Jill 100% NMG Knife - 185 total splits
     vars.jill100NMGKnife = new List<int>()
     {
          14,  15,  16,  17,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,
@@ -308,7 +308,7 @@ init
     };
 
     //Jill MG skips from 51 to 100
-    //Jill any% MG
+    //Jill any% MG - 169 total splits
     vars.jillAnyMG = new List<int>()
     {
          51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,
@@ -316,7 +316,7 @@ init
         168, 169, 170, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
     };
 
-    //Jill any% MG Knife
+    //Jill any% MG Knife - 159 total splits
     vars.jillAnyMGKnife = new List<int>()
     {
           5,   6,   7,   8,  51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,
@@ -325,7 +325,7 @@ init
         241, 242, 243, 244
     };
 
-    //Jill 100% MG 
+    //Jill 100% MG - 183 total splits
     vars.jill100MG = new List<int>()
     {
          51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,
@@ -333,7 +333,7 @@ init
         170, 171, 172, 173, 174, 175, 182, 183, 184, 185
     };
 
-    //Jill 100% MG Knife
+    //Jill 100% MG Knife - 173 total splits
     vars.jill100MGKnife = new List<int>()
     {
           5,   6,   7,   8,  51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,
@@ -342,7 +342,7 @@ init
     };
 
     //Chris NMG skips from 57 to 100
-    //Chris any% NMG
+    //Chris any% NMG - 173 total splits
     vars.chrisAnyNMG = new List<int>()
     {
          57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,
@@ -350,7 +350,7 @@ init
         177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
     };
 
-    //Chris 100% NMG
+    //Chris 100% NMG - 195 total splits
     vars.chris100NMG = new List<int>()
     {
          57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,
@@ -358,7 +358,7 @@ init
     };
 
     //Chris MG skips from 49 to 100
-    //Chris any% MG
+    //Chris any% MG - 165 total splits
     vars.chrisAnyMG = new List<int>()
     {
          49,  50,  51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,
@@ -366,7 +366,7 @@ init
         160, 161, 162, 167, 168, 169, 170, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
     };
 
-    //Chris 100% MG
+    //Chris 100% MG - 186 total splits
     vars.chris100MG = new List<int>()
     {
          49,  50,  51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,

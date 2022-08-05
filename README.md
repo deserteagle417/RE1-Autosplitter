@@ -13,27 +13,23 @@ The program exe must be named "Biohazard.exe".
 ## Supported Categories
 
 All main board categories are supported with routed door splits. Set your category and split type by selecting the appropriate option from each group under "Routed Splits". Make sure to ONLY CHOOSE ONE option from each group, otherwise the splits will not work.
-There are also three route alterations you can apply to the splits:
-* "Bank when entering Guardhouse" - For Jill 100% Knife Only (NMG or MG) categories and every Chris category. This switches the bank in Guardhouse to the first thing you do upon entering, instead of on the way out.
-* "Skip Plant 42 Glitch" - This skips the 2 door splits for getting the flame rounds in the 002 bathroom and the 2 splits for reloading the Plant 42 boss. Only applies to Jill MG No Restriction categories. (Removes 4 splits total)
-* "Skip Plant 42 Fight Reload" - This skips the two door splits for reloading the Plant 42 fight. The split for the Plant 42 fight will then only split after defeating the boss (requires you to have the Helmet Key when leaving the room). This can be used in every Chris category and is also useful if you're running Jill Major Glitches, but do not plan to reset over a missed Plant 42 Glitch. (Removes 2 splits total)
 
 ### Total Door Splits By Category
 
 |            Run Category             | Total Number of Splits |
 |-------------------------------------|:----------------------:|
-| Jill, Bad Ending, NMG               | xxx                    |
-| Jill, Bad Ending, NMG, Knife Only   | xxx                    |
-| Jill, Good Ending, NMG              | xxx                    |
-| Jill, Good Ending, NMG, Knife Only  | xxx                    |
-| Jill, Bad Ending, MG                | xxx                    |
-| Jill, Bad Ending, MG, Knife Only    | xxx                    |
-| Jill, Good Ending, MG               | xxx                    |
-| Jill, Good Ending, MG, Knife Only   | xxx                    |
-| Chris, Bad Ending, NMG              | xxx                    |
-| Chris, Good Ending, NMG             | xxx                    |
-| Chris, Bad Ending, MG               | xxx                    |
-| Chris, Good Ending, MG              | xxx                    |
+| Jill, Bad Ending, NMG               | 177                    |
+| Jill, Bad Ending, NMG, Knife Only   | 171                    |
+| Jill, Good Ending, NMG              | 191                    |
+| Jill, Good Ending, NMG, Knife Only  | 185                    |
+| Jill, Bad Ending, MG                | 169                    |
+| Jill, Bad Ending, MG, Knife Only    | 159                    |
+| Jill, Good Ending, MG               | 183                    |
+| Jill, Good Ending, MG, Knife Only   | 173                    |
+| Chris, Bad Ending, NMG              | 173                    |
+| Chris, Good Ending, NMG             | 194                    |
+| Chris, Bad Ending, MG               | 165                    |
+| Chris, Good Ending, MG              | 186                    |
 
 ***Chris No Restriction and Knife Only categories have the same number of splits***
 
@@ -61,6 +57,13 @@ Every Bad Ending category has 16 total segment splits and every Good Ending cate
 17. Tyrant
 18. Orgy Room (Good Ending categories only)
 19. End
+
+### Door Split Route Alteration Options
+
+There are also three route alterations you can apply to the door splits:
+* "Bank when entering Guardhouse" - For Jill 100% Knife Only (NMG or MG) categories and every Chris category. This switches the bank in Guardhouse to the first thing you do upon entering, instead of on the way out.
+* "Skip Plant 42 Glitch" - This skips the 2 door splits for getting the flame rounds in the 002 bathroom and the 2 splits for reloading the Plant 42 boss. Only applies to Jill MG No Restriction categories. (Removes 4 splits total)
+* "Skip Plant 42 Fight Reload" - This skips the two door splits for reloading the Plant 42 fight. The split for the Plant 42 fight will then only split after defeating the boss (requires you to have the Helmet Key when leaving the room). This can be used in every Chris category and is also useful if you're running Jill Major Glitches, but do not plan to reset over a missed Plant 42 Glitch. (Removes 2 splits total)
 
 ## Checkpoint Splits -- by SHiiDO (default option)
 
