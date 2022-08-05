@@ -21,19 +21,19 @@ There are also three route alterations you can apply to the splits:
 ### Total Door Splits By Category
 
 |            Run Category             | Total Number of Splits |
-|-------------------------------------|------------------------|
-| Jill, Bad Ending, NMG               |                        |
-| Jill, Bad Ending, NMG, Knife Only   |                        |
-| Jill, Good Ending, NMG              |                        |
-| Jill, Good Ending, NMG, Knife Only  |                        |
-| Jill, Bad Ending, MG                |                        |
-| Jill, Bad Ending, MG, Knife Only    |                        |
-| Jill, Good Ending, MG               |                        |
-| Jill, Good Ending, MG, Knife Only   |                        |
-| Chris, Bad Ending, NMG              |                        |
-| Chris, Good Ending, NMG             |                        |
-| Chris, Bad Ending, MG               |                        |
-| Chris, Good Ending, MG              |                        |
+|-------------------------------------|:----------------------:|
+| Jill, Bad Ending, NMG               | xxx                    |
+| Jill, Bad Ending, NMG, Knife Only   | xxx                    |
+| Jill, Good Ending, NMG              | xxx                    |
+| Jill, Good Ending, NMG, Knife Only  | xxx                    |
+| Jill, Bad Ending, MG                | xxx                    |
+| Jill, Bad Ending, MG, Knife Only    | xxx                    |
+| Jill, Good Ending, MG               | xxx                    |
+| Jill, Good Ending, MG, Knife Only   | xxx                    |
+| Chris, Bad Ending, NMG              | xxx                    |
+| Chris, Good Ending, NMG             | xxx                    |
+| Chris, Bad Ending, MG               | xxx                    |
+| Chris, Good Ending, MG              | xxx                    |
 
 ***Chris No Restriction and Knife Only categories have the same number of splits***
 
