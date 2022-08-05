@@ -44,7 +44,7 @@ Every Bad Ending category has 16 total segment splits and every Good Ending cate
 
 1. King Henry (Jill NMG Only)
 2. Rebecca Practicing the Piano (Chris NMG Only)
-3. Chemical Skip (MG Categories Only)
+3. Chemical Skip (MG categories Only)
 4. Yawn 1
 5. Mansion 1
 6. Courtyard 1
@@ -59,7 +59,7 @@ Every Bad Ending category has 16 total segment splits and every Good Ending cate
 15. Underground
 16. Loud Room
 17. Tyrant
-18. Orgy Room
+18. Orgy Room (Good Ending categories only)
 19. End
 
 ## Checkpoint Splits -- by SHiiDO (default option)
