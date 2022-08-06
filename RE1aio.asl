@@ -183,15 +183,14 @@ init
     vars.key4 = 0;
     vars.key5 = 0;
     vars.key6 = 0;
-    vars.helmet = 0;
-    vars.endSplitFlag = 0;
+    vars.helmet = 0; //Used for flags for obtaining specific items
+    vars.endSplitFlag = 0; //Used to prevent ending split from triggering multiple times
     vars.category = "";
     vars.splitType = "";
     vars.categoryChosen = false;
-    vars.splitsChosen = false;
-    vars.doorIndexList = new List<int>();
-    vars.Mansion1Doors = new List<Tuple<int,int,int>>();
-    vars.PrintDoors = true;
+    vars.splitsChosen = false; //Used to determine and choose a set of doors and door indexes
+    vars.doorIndexList = new List<int>(); //Holds door indexes
+    vars.Mansion1Doors = new List<Tuple<int,int,int>>(); //Holds index, roomID, stageID tuples
 
     //Jill Mansion 1 NMG Doors -- Bazooka: 14, 15, 16, 17
     vars.jillNMG = new List<Tuple<int, int, int>>
@@ -449,7 +448,6 @@ update
         vars.splitsChosen = false;
         vars.doorIndexList.Clear();
         vars.Mansion1Doors.Clear();
-        vars.PrintDoors = true;
     }
 
     //Iterate through the inventory slots to return their values
@@ -467,6 +465,7 @@ update
     }
 
     //Category Chooser -- creates a string that identifies the category and split type to use.
+    //After the category string is set, a flag is set to true so this does not continue to evaluate during the run.
     if(!vars.categoryChosen && settings["route"])
     {
         if(settings["jill"])
@@ -514,7 +513,9 @@ update
         vars.categoryChosen = true;
     }
 
-    //once category has been chosen, use the category string to set the doorIterator list for the category and choose the set of Mansion 1 doors
+    /*Once category has been chosen, use the category string to set the doorIterator list for the category and choose the set of Mansion 1 doors
+      In the case of segment splits, just the doorIterator list is chosen
+      A flag is set once the splits are chosen so this switch does not continue to run.*/
     if(vars.categoryChosen && !vars.splitsChosen)
     {
         string runCategory = vars.category;
@@ -688,10 +689,8 @@ update
 
 start
 {
-    //Triggers at the starting camera angle in the main hall in the opening cutscene in the main hall
-    //return current.camID == 0 && current.stageID == 0 && current.roomID == 6;
-
-    //current.gameStart becomes 0x20 when a new game is started and current.gameState starts with a 9 when the save is loaded.
+    //current.gameStart becomes 0x20 when a new game is started and current.gameState starts with a 9 when the save is loaded. 
+    //This is used in conjunction with the cam, stage, and room IDs to further protect the start flag since these IDs can be set after a run is finished.
     return ((current.gameStart == 0x20) || ((current.gameState & 0x90000000) == 0x90000000)) && (current.camID == 0 && current.stageID == 0 && current.roomID == 6);
 }
 
@@ -715,6 +714,7 @@ split
         vars.disks = 0;
         vars.keys = 0;
 
+        //Cycle through the inventory to look for items
         for(int i = 0; i < vars.inventorySize; i++)
         {
 	    	//Check if any inventory slots include the variables in our items lists, check if the split was already completed and if the setting for the given item is activated
@@ -725,7 +725,7 @@ split
             	return true;
         	}
 
-            //While cycling through the inventory, count the number of batteries, MO disks, helmet keys, and small keys present
+            //While cycling through the inventory, count the number of batteries, MO disks, and small keys present. Sets the helmet key flag to 1 if it is detected.
             switch(currentInventory[i])
             {
                 case (39):
@@ -743,6 +743,7 @@ split
             };
         }
 
+        //Special Splits for items which there are more than one of. There are flags for each item that are set to 1 in the room they are in when the item is picked up so it cannot be split on again.
         //Battery Splits
         if((settings["batt1"] && current.roomID == 25 && current.stageID == 6) || 
            (settings["batt2"] && current.roomID == 1 && current.stageID == 4))
@@ -762,6 +763,7 @@ split
             }
         }
 
+        //For MO Disks and Small Keys, we are looking for a change in the quantity of them in the inventory since we can have more than one at a time.
         //MO Disk Splits
         if((settings["MO1"] && current.roomID == 23 && current.stageID == 6) || 
            (settings["MO2"] && current.roomID == 15 && current.stageID == 2) || 
@@ -874,19 +876,19 @@ split
         switch(splits)
         {
             case ("doors"):
-                if(settings["egh"] && (vars.doorIterator == 104 || vars.doorIterator == 105) && vars.postMansion1.Contains(Tuple.Create(vars.doorIterator,Convert.ToInt32(current.roomID),Convert.ToInt32(current.stageID))))
+                if(settings["egh"] && (vars.doorIterator == 104 || vars.doorIterator == 105) && vars.postMansion1.Contains(Tuple.Create(vars.doorIterator,Convert.ToInt32(current.roomID),Convert.ToInt32(current.stageID)))) //exception for early guardhouse bank
                 {
                     vars.doorIterator++;
                     return true;
                 } 
                 else if(!vars.doorIndexList.Contains(vars.doorIterator) && 
                     (vars.Mansion1Doors.Contains(Tuple.Create(vars.doorIterator, Convert.ToInt32(current.roomID), Convert.ToInt32(current.stageID))) 
-                    || vars.postMansion1.Contains(Tuple.Create(vars.doorIterator, Convert.ToInt32(current.roomID), Convert.ToInt32(current.stageID))) )) 
+                    || vars.postMansion1.Contains(Tuple.Create(vars.doorIterator, Convert.ToInt32(current.roomID), Convert.ToInt32(current.stageID))) )) //checks if the doorIterator value is in the index list, and if the doorIterator, roomID, stageID triple is in the route
                 {
                     vars.doorIterator++;
                     return true;
                 } 
-                else if(vars.doorIndexList.Contains(vars.doorIterator) && vars.doorIterator < 248 && !(settings["egh"] && (vars.doorIterator == 104 || vars.doorIterator == 105))) 
+                else if(vars.doorIndexList.Contains(vars.doorIterator) && vars.doorIterator < 248 && !(settings["egh"] && (vars.doorIterator == 104 || vars.doorIterator == 105))) //skip the doorIterator value when it is not in the route
                 {
                     vars.doorIterator++;
                 }
