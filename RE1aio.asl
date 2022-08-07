@@ -26,7 +26,7 @@ startup
     settings.Add("route", false, "Routed Splits");
         settings.SetToolTip("route", "Routed door splits will only split when going in the correct direction.");
         settings.CurrentDefaultParent = "route";
-        settings.Add("disc", false, "Choose options from each group below to set your category.");
+        settings.Add("disc", false, "Choose ONE option from each group below to set your category.");
 
     //Character Choice
 	    settings.Add("break1", false, "----------Character------------------------------------------------------------");
@@ -76,10 +76,10 @@ startup
         settings.SetToolTip("basic", "Splits on every door transition.");
         settings.CurrentDefaultParent = null;
 
-    //Battle Game Room Splits
+    /*Battle Game Room Splits
     settings.Add("battle", false, "Battle Game Splits");
         settings.SetToolTip("battle", "Splits on all door transitions. Not compatible with item splits.");
-        settings.CurrentDefaultParent = null;
+        settings.CurrentDefaultParent = null;*/
 
     //Key Items
 	vars.KeyItems = new List<int>()
