@@ -167,6 +167,7 @@ init
     vars.completedSplits = new List<int>();
 	vars.Inventory = new byte[8];
 	vars.doorIterator = 0;
+    vars.skipValue = 0; //used for skipping from the Mansion 1 group of doors to the post-Mansion 1 group.
     vars.inventorySize = 0;
     vars.disks = 0;
     vars.disksPrevious = 0;
@@ -241,9 +242,8 @@ init
     {
         Tuple.Create(100,  1, 2), Tuple.Create(101,  2, 2), Tuple.Create(102,  4, 2), Tuple.Create(103,  0, 3), 
         Tuple.Create(104,  3, 3), Tuple.Create(105,  0, 3), //early guardhouse bank
-        Tuple.Create(106,  1, 3), Tuple.Create(107,  2, 3), Tuple.Create(108,  1, 3), Tuple.Create(109,  0, 3),
-        Tuple.Create(110,  5, 3), Tuple.Create(111,  8, 3), Tuple.Create(112,  5, 3), Tuple.Create(113,  6, 3), Tuple.Create(114, 13, 3), Tuple.Create(115, 14, 3), Tuple.Create(116, 17, 3), Tuple.Create(117, 14, 3), Tuple.Create(118, 16, 3), Tuple.Create(119, 14, 3),
-        Tuple.Create(120, 13, 3), Tuple.Create(121,  6, 3), Tuple.Create(122,  5, 3), Tuple.Create(123,  8, 3), Tuple.Create(124, 10, 3),
+        Tuple.Create(106,  1, 3), Tuple.Create(107,  2, 3), Tuple.Create(108,  1, 3), Tuple.Create(109,  0, 3), Tuple.Create(110,  5, 3), Tuple.Create(111,  8, 3), Tuple.Create(112,  5, 3), Tuple.Create(113,  6, 3), Tuple.Create(114, 13, 3), Tuple.Create(115, 14, 3),
+        Tuple.Create(116, 17, 3), Tuple.Create(117, 14, 3), Tuple.Create(118, 16, 3), Tuple.Create(119, 14, 3), Tuple.Create(120, 13, 3), Tuple.Create(121,  6, 3), Tuple.Create(122,  5, 3), Tuple.Create(123,  8, 3), Tuple.Create(124, 10, 3),
         Tuple.Create(125, 11, 3), Tuple.Create(126, 10, 3), //flame rounds
         Tuple.Create(127, 12, 3), Tuple.Create(128,  8, 3), //P42 reload
         Tuple.Create(129, 12, 3), //require helmet key
@@ -258,7 +258,7 @@ init
         Tuple.Create(163,  0, 6), Tuple.Create(164, 28, 6),
         Tuple.Create(165, 16, 5), Tuple.Create(166,  4, 5), //without rope (pt 1)
         Tuple.Create(167,  3, 5), Tuple.Create(168,  1, 5), Tuple.Create(169,  3, 5), Tuple.Create(170,  4, 5), //save rebecca
-        Tuple.Create(171,  5, 5), Tuple.Create(172,  6, 5), Tuple.Create(173,  7, 5), Tuple.Create(174,  8, 5), Tuple.Create(175,  9, 5), //without rope
+        Tuple.Create(171,  5, 5), Tuple.Create(172,  6, 5), Tuple.Create(173,  7, 5), Tuple.Create(174,  8, 5), Tuple.Create(175,  9, 5), //without rope (pt 2)
         Tuple.Create(176, 27, 6), Tuple.Create(177, 26, 6), Tuple.Create(178, 12, 6), Tuple.Create(179, 11, 6), Tuple.Create(180,  7, 6), Tuple.Create(181, 11, 5), //with rope
         Tuple.Create(182, 10, 5), Tuple.Create(183, 11, 5), Tuple.Create(184, 24, 5), Tuple.Create(185, 11, 5), //exit Mansion 2 bank
         Tuple.Create(186, 10, 5), Tuple.Create(187, 26, 5), Tuple.Create(188, 27, 5), Tuple.Create(189,  0, 2), Tuple.Create(190,  1, 2), Tuple.Create(191,  2, 2), Tuple.Create(192,  0, 2), Tuple.Create(193,  1, 2), Tuple.Create(194,  0, 2), Tuple.Create(195,  2, 2), 
@@ -277,100 +277,88 @@ init
     //Jill any% NMG - 177 total splits
     vars.jillAnyNMG = new List<int>()
     {
-         63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,
-         93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 127, 128, 133, 134, 157, 158, 159, 160, 161, 162, 167, 168, 169, 170, 176, 177, 178, 179, 180, 
-        181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
+        104, 105, 125, 126, 127, 128, 133, 134, 157, 158, 159, 160, 161, 162, 167, 168, 169, 170, 176, 177, 
+        178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
     };
 
     //Jill any% NMG Knife - 171 total splits
     vars.jillAnyNMGKnife = new List<int>()
     {
-         14,  15,  16,  17,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,
-         89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 127, 128, 133, 134, 145, 146, 157, 158, 159, 160, 161, 162, 167, 168, 169, 
-        170, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
+         14,  15,  16,  17, 104, 105, 125, 126, 127, 128, 133, 134, 145, 146, 157, 158, 159, 160, 161, 162,
+        167, 168, 169, 170, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239,
+        240, 241, 242, 243, 244
     };
 
     //Jill 100% NMG - 191 total splits
     vars.jill100NMG = new List<int>()
     {
-         63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,
-         93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 127, 128, 133, 134, 155, 156, 165, 167, 168, 169, 170, 170, 171, 172, 173, 174, 175, 182, 183,
-        184, 185
+        104, 105, 125, 126, 127, 128, 133, 134, 155, 156, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174,
+        175, 182, 183, 184, 185
     };
 
     //Jill 100% NMG Knife - 185 total splits
     vars.jill100NMGKnife = new List<int>()
     {
-         14,  15,  16,  17,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,
-         89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 127, 128, 145, 146, 161, 162, 165, 166, 167, 168, 169, 170, 171, 172, 173, 
-        174, 175, 182, 183, 184, 185, 228, 229
+         14,  15,  16,  17, 104, 105, 125, 126, 127, 128, 145, 146, 161, 162, 165, 166, 167, 168, 169, 170,
+        171, 172, 173, 174, 175, 182, 183, 184, 185, 228, 229
     };
 
     //Jill MG skips from 51 to 100
     //Jill any% MG - 169 total splits
     vars.jillAnyMG = new List<int>()
     {
-         51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,
-         81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 133, 134, 157, 158, 159, 160, 161, 162, 167, 
-        168, 169, 170, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
+        104, 105, 133, 134, 157, 158, 159, 160, 161, 162, 167, 168, 169, 170, 176, 177, 178, 179, 180, 181, 
+        182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
     };
 
     //Jill any% MG Knife - 159 total splits
     vars.jillAnyMGKnife = new List<int>()
     {
-          5,   6,   7,   8,  51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,
-         77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 127, 128, 133,
-        134, 145, 146, 157, 158, 159, 160, 161, 162, 167, 168, 169, 170, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240,
-        241, 242, 243, 244
+          5,   6,   7,   8, 104, 105, 125, 126, 127, 128, 133, 134, 145, 146, 157, 158, 159, 160, 161, 162, 
+        167, 168, 169, 170, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 
+        240, 241, 242, 243, 244
     };
 
     //Jill 100% MG - 183 total splits
     vars.jill100MG = new List<int>()
     {
-         51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,
-         81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 133, 134, 155, 156, 165, 166, 167, 168, 169,
-        170, 171, 172, 173, 174, 175, 182, 183, 184, 185
+        104, 105, 133, 134, 155, 156, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 182, 183, 184,
+        185
     };
 
     //Jill 100% MG Knife - 173 total splits
     vars.jill100MGKnife = new List<int>()
     {
-          5,   6,   7,   8,  51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,
-         77,  78,  79,  80,  81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 127, 128, 145,
-        146, 161, 162, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 182, 183, 184, 185, 228, 229
+          5,   6,   7,   8, 104, 105, 125, 126, 127, 128, 145, 146, 161, 162, 165, 166, 167, 168, 169, 170,
+        171, 172, 173, 174, 175, 182, 183, 184, 185, 228, 229
     };
 
     //Chris NMG skips from 57 to 100
     //Chris any% NMG - 173 total splits
     vars.chrisAnyNMG = new List<int>()
     {
-         57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,
-         87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 145, 146, 157, 158, 159, 160, 161, 162, 167, 168, 169, 170, 176,
-        177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
+        104, 105, 125, 126, 145, 146, 157, 158, 159, 160, 161, 162, 167, 168, 169, 170, 176, 177, 178, 179,
+        180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
     };
 
-    //Chris 100% NMG - 195 total splits
+    //Chris 100% NMG - 194 total splits
     vars.chris100NMG = new List<int>()
     {
-         57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,
-         87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 145, 146, 161, 162, 176, 177, 178, 179, 180, 181, 228, 229
+        104, 105, 125, 126, 145, 146, 161, 162, 176, 177, 178, 179, 180, 181, 228, 229
     };
 
     //Chris MG skips from 49 to 100
     //Chris any% MG - 165 total splits
     vars.chrisAnyMG = new List<int>()
     {
-         49,  50,  51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,
-         79,  80,  81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 145, 146, 157, 158, 159,
-        160, 161, 162, 167, 168, 169, 170, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
+        104, 105, 125, 126, 145, 146, 157, 158, 159, 160, 161, 162, 167, 168, 169, 170, 176, 177, 178, 179,
+        180, 181, 182, 183, 184, 185, 228, 229, 236, 237, 238, 239, 240, 241, 242, 243, 244
     };
 
     //Chris 100% MG - 186 total splits
     vars.chris100MG = new List<int>()
     {
-         49,  50,  51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73,  74,  75,  76,  77,  78,
-         79,  80,  81,  82,  83,  84,  85,  86,  87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 104, 105, 125, 126, 145, 146, 161, 162, 176,
-        177, 178, 179, 180, 181, 228, 229
+        104, 105, 125, 126, 145, 146, 161, 162, 176, 177, 178, 179, 180, 181, 228, 229
     };
 
     //Segment Splits
@@ -526,6 +514,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.jillNMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 63;
                 vars.splitsChosen = true;
                 break;
             
@@ -534,6 +523,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.jillNMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 63;
                 vars.splitsChosen = true;
                 break;
             
@@ -542,6 +532,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.jillNMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 63;
                 vars.splitsChosen = true;
                 break;
             
@@ -550,6 +541,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.jillNMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 63;
                 vars.splitsChosen = true;
                 break;
             
@@ -558,6 +550,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.jillMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 51;
                 vars.splitsChosen = true;
                 break;
             
@@ -566,6 +559,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.jillMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 51;
                 vars.splitsChosen = true;
                 break;
             
@@ -574,6 +568,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.jillMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 51;
                 vars.splitsChosen = true;
                 break;
             
@@ -582,6 +577,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.jillMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 51;
                 vars.splitsChosen = true;
                 break;
             
@@ -591,6 +587,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.chrisNMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 57;
                 vars.splitsChosen = true;
                 break;
             
@@ -600,6 +597,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.chrisNMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 57;
                 vars.splitsChosen = true;
                 break;
             
@@ -609,6 +607,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.chrisMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 49;
                 vars.splitsChosen = true;
                 break;
             
@@ -618,6 +617,7 @@ update
                 {vars.doorIndexList.Add(element);}
                 foreach (Tuple<int,int,int> element in vars.chrisMG)
                 {vars.Mansion1Doors.Add(element);}
+                vars.skipValue = 49;
                 vars.splitsChosen = true;
                 break;
 
@@ -707,7 +707,7 @@ split
     byte[] currentInventory = (vars.Inventory as byte[]);
     
     //Item Splits
-	if((settings["item"] || settings["extra"] || (vars.helmet == 0 && current.stageID == 3 && current.roomID == 12)) && !settings["battle"])
+	if((settings["item"] || settings["extra"] || (vars.helmet == 0 && current.stageID == 3 && current.roomID == 12)))
     {
         //Reset the battery, MO disk, and small key total to zero
         vars.batteries = 0;
@@ -850,6 +850,11 @@ split
     //Routed Door Splits
     if(settings["route"] && !settings["check"] && !settings["basic"])
     {
+        //when entering the courtyard, skip the doorIterator to 100 to start using post-Mansion 1 door values
+        if(vars.doorIterator == vars.skipValue)
+        {
+            vars.doorIterator = 100;
+        }
         //if using early Guardhouse bank, skip the doors for the late bank
         if(settings["egh"] && vars.doorIterator == 133)
         {
