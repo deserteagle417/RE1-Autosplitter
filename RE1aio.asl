@@ -409,8 +409,8 @@ update
     //Reset variables when the timer is reset.
 	if(timer.CurrentPhase == TimerPhase.NotRunning)
 	{
-		vars.completedSplits.Clear();
-		vars.doorIterator = 0;
+        vars.completedSplits.Clear();
+        vars.doorIterator = 0;
         vars.inventorySize = 0;
         vars.disks = 0;
         vars.disksPrevious = 0;
@@ -881,7 +881,7 @@ split
         switch(splits)
         {
             case ("doors"):
-                if(settings["egh"] && (vars.doorIterator == 104 || vars.doorIterator == 105) && vars.postMansion1.Contains(Tuple.Create(vars.doorIterator,Convert.ToInt32(current.roomID),Convert.ToInt32(current.stageID)))) //exception for early guardhouse bank
+                if(settings["egh"] && (vars.doorIterator == 104 || vars.doorIterator == 105) && (settings["chris"] || vars.category == "jill-mg-good-knife-doors") && vars.postMansion1.Contains(Tuple.Create(vars.doorIterator,Convert.ToInt32(current.roomID),Convert.ToInt32(current.stageID)))) //exception for early guardhouse bank
                 {
                     vars.doorIterator++;
                     return true;
@@ -916,7 +916,7 @@ split
     }
     
     //Checkpoint Door Splits -- written by SHiiDO
-    if(settings["check"] && !settings["battle"] && !settings["basic"])
+    if(settings["check"] && !settings["basic"])
     {
 	    if(timer.CurrentSplit.Name == "Laboratory - End")
 	    {
@@ -954,7 +954,7 @@ split
     }
 
     //Basic Door Splits
-    if(settings["basic"] && !settings["battle"] && !settings["check"] && (old.roomID != current.roomID || old.stageID != current.stageID))
+    if(settings["basic"] && !settings["check"] && (old.roomID != current.roomID || old.stageID != current.stageID))
 	{
 		return true;
 	}
