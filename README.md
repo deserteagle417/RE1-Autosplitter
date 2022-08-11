@@ -91,4 +91,4 @@ Visit the [RE1 SRC resource page](https://www.speedrun.com/residentevil/resource
 
 ## Credits
 * Dchaps for finding most of the memory addresses. I only contributed the addresses to detect character, main menu, and game starting.
-* SHiiDO for writing the checkpoint splits and whose autosplitter encourages me to start writing autosplitters.
+* SHiiDO for writing the checkpoint splits and whose autosplitter encouraged me to start writing autosplitters.
