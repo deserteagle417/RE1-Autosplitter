@@ -7,7 +7,21 @@ Thanks to WitchRain, Raclesis, and Mercy for helping testing the splits on the a
 Thanks to Mysterion for help with my RE0 autosplitter, which has become the basis for several of my ASLs now.
 */
 
-state("Biohazard", "Main Game")
+state("Biohazard")
+{
+    uint time        : 0x6A8E10;
+    byte mainMenu    : 0x6A8E57;
+    uint gameState   : 0x833090;
+    byte gameStart   : 0x833097;
+    byte hp          : 0x83523C;
+    byte stageID     : 0x8386F0;
+    byte roomID      : 0x8386F1;
+    byte camID       : 0x8386F2;
+    byte oldRoom     : 0x8386F3;
+    byte characterID : 0x8386F9;
+}
+
+state("Resident Evil")
 {
     uint time        : 0x6A8E10;
     byte mainMenu    : 0x6A8E57;
