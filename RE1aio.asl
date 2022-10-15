@@ -5,6 +5,7 @@ Clix_Gaming, and WitchRain for later versions of the scritps. I've only contribu
 Thanks to SHiiDO for the checkpoint splits.
 Thanks to WitchRain, Raclesis, and Mercy for helping testing the splits on the absurd number of categories this game has.
 Thanks to Mysterion for help with my RE0 autosplitter, which has become the basis for several of my ASLs now.
+Thanks to Krayziejaz for finding that the item splitter broke later in the run, which led me to find that Jill's character ID changes in a few spots!
 */
 
 state("Biohazard")
@@ -459,10 +460,10 @@ update
     }
 
     //Set the inventory size according to the current character
-    if(current.characterID == 1) //Jill has characterID 1 and has 8 inventory slots
+    if(current.characterID == 1 || current.characterID == 5) //Jill has characterID 1 (most places) and 5 (in underground and labs) and has 8 inventory slots
     {
         vars.inventorySize = 8;
-    } else { //Chris and Rebecca have characterIDs 0 and 3 (resp.), and 6 inventory slots
+    } else { //Chris and Rebecca have characterIDs 0 and 3 (resp.), and 6 inventory slots (Chris probably changes in underground and labs, too, actually)
         vars.inventorySize = 6;
     }
 
@@ -731,7 +732,7 @@ split
         //Cycle through the inventory to look for items
         for(int i = 0; i < vars.inventorySize; i++)
         {
-	    	//Check if any inventory slots include the variables in our items lists, check if the split was already completed and if the setting for the given item is activated
+	    	//Check if any inventory slots include the values in our items lists, check if the split was already completed and if the setting for the given item is activated
 	    	if((vars.KeyItems.Contains(currentInventory[i]) || vars.ExtraItems.Contains(currentInventory[i])) 
                 && !vars.completedSplits.Contains(currentInventory[i]) && settings[currentInventory[i].ToString()])
             {
