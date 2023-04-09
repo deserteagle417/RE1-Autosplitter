@@ -732,7 +732,13 @@ split
         //Cycle through the inventory to look for items
         for(int i = 0; i < vars.inventorySize; i++)
         {
-	    	//Check if any inventory slots include the values in our items lists, check if the split was already completed and if the setting for the given item is activated
+	    	//Hardcode the Beretta split to not work for Jill
+            if(current.characterID == 1 || current.characterID == 5)
+            {
+                vars.completedSplits.Add(2);
+            }
+            
+            //Check if any inventory slots include the values in our items lists, check if the split was already completed and if the setting for the given item is activated
 	    	if((vars.KeyItems.Contains(currentInventory[i]) || vars.ExtraItems.Contains(currentInventory[i])) 
                 && !vars.completedSplits.Contains(currentInventory[i]) && settings[currentInventory[i].ToString()])
             {
