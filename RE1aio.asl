@@ -182,7 +182,7 @@ init
     vars.completedSplits = new List<int>();
 	vars.Inventory = new byte[8];
 	vars.doorIterator = 0;
-    vars.skipValue = 0; //used for skipping from the Mansion 1 group of doors to the post-Mansion 1 group.
+    vars.skipValue = 500; //used for skipping from the Mansion 1 group of doors to the post-Mansion 1 group.
     vars.inventorySize = 0;
     vars.disks = 0;
     vars.disksPrevious = 0;
