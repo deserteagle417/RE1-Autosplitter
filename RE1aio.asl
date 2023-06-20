@@ -666,7 +666,7 @@ update
 
             case ("chris-nmg-bad-none-set"):
             case ("chris-nmg-bad-knife-set"):
-                foreach (int element in vars.jillchrisSegNMG)
+                foreach (int element in vars.chrisSegNMG)
                 {vars.doorIndexList.Add(element);}
                 vars.splitsChosen = true;
                 break;
