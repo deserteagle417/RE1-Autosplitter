@@ -8,7 +8,8 @@ Thanks to Mysterion for help with my RE0 autosplitter, which has become the basi
 Thanks to Krayziejaz for finding that the item splitter broke later in the run, which led me to find that Jill's character ID changes in a few spots!
 */
 
-state("Biohazard")
+//Mediakite with REbirth Patch
+state("Biohazard", "JapaneseREbirth")
 {
     uint time        : 0x6A8E10;
     byte mainMenu    : 0x6A8E57;
@@ -20,9 +21,16 @@ state("Biohazard")
     byte camID       : 0x8386F2;
     byte oldRoom     : 0x8386F3;
     byte characterID : 0x8386F9;
+    ushort Enemy1    : 0x8353BC;
+    ushort Enemy2    : 0x835548;
+    ushort Enemy3    : 0x8356D4;
+    ushort Enemy4    : 0x835860;
+    ushort Enemy5    : 0x835B78;
+    ushort Enemy6    : 0x8359EC;
 }
 
-state("Resident Evil")
+//Japanese GOG Version w/o REbirth
+state("Biohazard", "JapaneseGOG")
 {
     uint time        : 0x6A8E10;
     byte mainMenu    : 0x6A8E57;
@@ -34,6 +42,32 @@ state("Resident Evil")
     byte camID       : 0x8386F2;
     byte oldRoom     : 0x8386F3;
     byte characterID : 0x8386F9;
+    ushort Enemy1    : 0x8353BC;
+    ushort Enemy2    : 0x835548;
+    ushort Enemy3    : 0x8356D4;
+    ushort Enemy4    : 0x835860;
+    ushort Enemy5    : 0x835B78;
+    ushort Enemy6    : 0x8359EC;
+}
+
+state("ResidentEvil", "EnglishGOG")
+{
+    uint time        : 0xD46D4;
+    byte mainMenu    : 0x922777;
+    uint gameState   : 0x7E41C0;
+    byte gameStart   : 0x826E2F;
+    byte hp          : 0x7E636C;
+    byte stageID     : 0x7E9820;
+    byte roomID      : 0x7E9821;
+    byte camID       : 0x7E9822;
+    byte oldRoom     : 0x6C9CF4;
+    byte characterID : 0x7E9829;
+    ushort Enemy1    : 0x8353BC;
+    ushort Enemy2    : 0x835548;
+    ushort Enemy3    : 0x8356D4;
+    ushort Enemy4    : 0x835860;
+    ushort Enemy5    : 0x835B78;
+    ushort Enemy6    : 0x8359EC;
 }
 
 startup
@@ -182,6 +216,7 @@ init
     vars.completedSplits = new List<int>();
 	vars.Inventory = new byte[8];
 	vars.doorIterator = 0;
+    vars.inventoryOffset = 0; //used for changing the inventory starting address based on version
     vars.skipValue = 500; //used for skipping from the Mansion 1 group of doors to the post-Mansion 1 group.
     vars.inventorySize = 0;
     vars.disks = 0;
@@ -207,6 +242,23 @@ init
     vars.splitsChosen = false; //Used to determine and choose a set of doors and door indexes
     vars.doorIndexList = new List<int>(); //Holds door indexes
     vars.Mansion1Doors = new List<Tuple<int,int,int>>(); //Holds index, roomID, stageID tuples
+
+    //Determine Version
+    switch (modules.First().ModuleMemorySize)
+	{
+		case (10027008):
+			version = "JapaneseREbirth";
+            vars.inventoryOffset = 0;
+			break;
+        case (77144064):
+			version = "JapaneseGOG";
+            vars.inventoryOffset = 0;
+			break;
+        case (77279232):
+			version = "EnglishGOG";
+            vars.inventoryOffset = 0x4EED0;
+			break;
+	};
 
     //Jill Mansion 1 NMG Doors -- Bazooka: 14, 15, 16, 17
     vars.jillNMG = new List<Tuple<int, int, int>>
@@ -456,7 +508,7 @@ update
     //Iterate through the inventory slots to return their values
     for(int i = 0; i < 8; i++)
 	{
-        vars.Inventory[i] = new DeepPointer(0x838814 + i*(0x2)).Deref<byte>(game);
+        vars.Inventory[i] = new DeepPointer(0x838814 + i*(0x2) - vars.inventoryOffset).Deref<byte>(game);
     }
 
     //Set the inventory size according to the current character
